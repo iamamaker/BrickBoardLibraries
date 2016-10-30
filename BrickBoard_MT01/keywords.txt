@@ -1,0 +1,29 @@
+############################################
+# Syntax Coloring Map For BrickBoard MT01
+############################################
+
+############################################
+# Class (KEYWORD1)
+############################################
+
+BrickBoard_MT01	KEYWORD1
+
+############################################
+# Methods and Functions (KEYWORD2)
+############################################
+
+writeMotor	KEYWORD2
+forwardMotor	KEYWORD2
+reverseMotor	KEYWORD2
+stopMotor	KEYWORD2
+breakMotor	KEYWORD2
+
+############################################
+# Constants (LITERAL1)
+############################################
+
+MT_FORWARD	LITERAL1
+MT_REVERSE	LITERAL1
+MT_BREAK	LITERAL1
+MT_STOP	LITERAL1
+

@@ -1,0 +1,26 @@
+############################################
+# Syntax Coloring Map For BrickBoard SW01
+############################################
+
+############################################
+# Class (KEYWORD1)
+############################################
+
+BrickBoard_SW01	KEYWORD1
+
+############################################
+# Methods and Functions (KEYWORD2)
+############################################
+
+readBlue	KEYWORD2
+readRed	KEYWORD2
+checkBlue	KEYWORD2
+checkRed	KEYWORD2
+
+############################################
+# Constants (LITERAL1)
+############################################
+
+SWM_STATE	LITERAL1
+SWM_TOGGLE	LITERAL1
+

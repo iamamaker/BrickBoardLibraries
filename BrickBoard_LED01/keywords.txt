@@ -1,0 +1,26 @@
+############################################
+# Syntax Coloring Map For BrickBoard LED01
+############################################
+
+############################################
+# Class (KEYWORD1)
+############################################
+
+BrickBoard_LED01	KEYWORD1
+
+############################################
+# Methods and Functions (KEYWORD2)
+############################################
+
+writeBlue	KEYWORD2
+writeRed	KEYWORD2
+onBlue	KEYWORD2
+offBlue	KEYWORD2
+onRed	KEYWORD2
+offRed	KEYWORD2
+blinkBlue	KEYWORD2
+blinkRed	KEYWORD2
+
+############################################
+# Constants (LITERAL1)
+############################################

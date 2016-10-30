@@ -1,0 +1,23 @@
+############################################
+# Syntax Coloring Map For BrickBoard BT01
+############################################
+
+############################################
+# Class (KEYWORD1)
+############################################
+
+BrickBoard_BT01	KEYWORD1
+
+############################################
+# Methods and Functions (KEYWORD2)
+############################################
+
+sendAtCommand	KEYWORD2
+setBaudrate	KEYWORD2
+setPassword	KEYWORD2
+setDeviceName	KEYWORD2
+setUploadMode	KEYWORD2
+
+############################################
+# Constants (LITERAL1)
+############################################
