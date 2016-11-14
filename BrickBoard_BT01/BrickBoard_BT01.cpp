@@ -156,7 +156,7 @@ bool BrickBoard_BT01::setDeviceName(const String &s)
 }
 
 
-bool BrickBoard_BT01::setUploadMode()
+bool BrickBoard_BT01::setDefaultMode()
 {
     pinMode(L, OUTPUT);
     digitalWrite(L, LOW);
@@ -196,7 +196,7 @@ bool BrickBoard_BT01::setUploadMode()
     }
     else {}
 
-    str = sendAtCommand("AT+UART=115200,0,0\r\n");
+    str = sendAtCommand("AT+UART=57600,0,0\r\n");
     if (str != "OK\r\n")
     {
         Serial.println("Set UART Fail!!");

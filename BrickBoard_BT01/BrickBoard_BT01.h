@@ -17,7 +17,7 @@ public:
     bool setBaudrate(const String &s);
     bool setPassword(const String &s);
     bool setDeviceName(const String &s);
-    bool setUploadMode();
+    bool setDefaultMode();
 };
 
 #endif /* __BRICKBOARD_BT01_H__ */
