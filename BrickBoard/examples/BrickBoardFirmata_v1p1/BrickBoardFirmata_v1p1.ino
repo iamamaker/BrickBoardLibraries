@@ -682,6 +682,10 @@ void sysexCallback(byte command, byte argc, byte *argv)
 					led01.writeDigital(S1, argv[2]);
 					led01.writeDigital(S2, argv[2]);
 				}
+        else if (argv[1] == 0x04) {
+          led01.writeDigital(S1, argv[2]);
+          led01.writeDigital(S2, argv[3]);
+        }       
 				else {}
 			}
 			else {}
@@ -698,9 +702,14 @@ void sysexCallback(byte command, byte argc, byte *argv)
 				else if (argv[1] == 0x02) {
 					Serial.println(sw01.readDigital(S2));
 				}
+        else if (argv[1] == 0x03) {
+          Serial.println((sw01.readDigital(S2) << 1) | sw01.readDigital(S1));
+        }
 				else {
 					Serial.println(0x00);
 				}
+				Firmata.write(argv[1]);
+				Firmata.write(argv[0]);
 				Firmata.write(END_SYSEX);
 			}
 			else {}
@@ -757,6 +766,8 @@ void sysexCallback(byte command, byte argc, byte *argv)
 				Firmata.write(START_SYSEX);
 				Firmata.write(STRING_DATA);
 				Serial.println(vr01.readAnalog(S3));
+				Firmata.write(0x0);
+				Firmata.write(argv[0]);
 				Firmata.write(END_SYSEX);
 			}
 			else {}
@@ -773,7 +784,9 @@ void sysexCallback(byte command, byte argc, byte *argv)
 					Firmata.write(START_SYSEX);
 					Firmata.write(STRING_DATA);
 					Serial.println(ir01.readDigital(S1));
-					Firmata.write(END_SYSEX);
+          Firmata.write(0x0);
+          Firmata.write(argv[0]);
+          Firmata.write(END_SYSEX);
 				}
 			}
 			else {}
@@ -787,12 +800,16 @@ void sysexCallback(byte command, byte argc, byte *argv)
 						Firmata.write(START_SYSEX);
 						Firmata.write(STRING_DATA);
 						Serial.println(mp01.getPin(argv[2]));
+						Firmata.write(argv[2]);
+						Firmata.write(argv[0]);
 						Firmata.write(END_SYSEX);
 					break;
 					case 0x1:	//digitalRead
 						Firmata.write(START_SYSEX);
 						Firmata.write(STRING_DATA);
 						Serial.println(mp01.readDigital(argv[2]));
+            Firmata.write(argv[2]);
+            Firmata.write(argv[0]);						
 						Firmata.write(END_SYSEX);
 					break;
 					case 0x2: //digitalWrite
@@ -802,6 +819,8 @@ void sysexCallback(byte command, byte argc, byte *argv)
 						Firmata.write(START_SYSEX);
 						Firmata.write(STRING_DATA);
 						Serial.println(mp01.readAnalog(argv[2]));
+            Firmata.write(argv[2]);
+            Firmata.write(argv[0]);
 						Firmata.write(END_SYSEX);
 					break;
 					case 0x4: //anlogWrite(PWM)
@@ -811,6 +830,8 @@ void sysexCallback(byte command, byte argc, byte *argv)
 						Firmata.write(START_SYSEX);
 						Firmata.write(STRING_DATA);
 						Serial.println(mp01.measureUltrasonic(MP_CM));
+            Firmata.write(argv[1]);
+            Firmata.write(argv[0]);
 						Firmata.write(END_SYSEX);
 					break;
 					default:
