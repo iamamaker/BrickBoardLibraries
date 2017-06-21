@@ -6,7 +6,7 @@
 # Class (KEYWORD1)
 ############################################
 
-BrickBoard_MT01	KEYWORD1
+BrickBoard_VR01	KEYWORD1
 
 ############################################
 # Methods and Functions (KEYWORD2)
