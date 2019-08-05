@@ -28,6 +28,7 @@
 #include <Firmata.h>
 /* added by h2in(h2in@iamamaker.kr) */
 #include <BrickBoard_MP01.h>
+#include <BrickBoard_US01.h>
 
 
 #define I2C_WRITE                   B00000000
@@ -685,7 +686,7 @@ void sysexCallback(byte command, byte argc, byte *argv)
 				else if (argv[1] == 0x04) {
 					led01.writeDigital(S1, argv[2]);
 					led01.writeDigital(S2, argv[3]);
-				}       
+				}
 				else {}
 			}
 			else {}
@@ -803,18 +804,18 @@ void sysexCallback(byte command, byte argc, byte *argv)
 						Firmata.write(argv[2]);
 						Firmata.write(argv[0]);
 						Firmata.write(END_SYSEX);
-					break;
+                        break;
 					case 0x1:	//digitalRead
 						Firmata.write(START_SYSEX);
 						Firmata.write(STRING_DATA);
 						Serial.println(mp01.readDigital(argv[2]));
 						Firmata.write(argv[2]);
-						Firmata.write(argv[0]);						
+						Firmata.write(argv[0]);
 						Firmata.write(END_SYSEX);
-					break;
+                        break;
 					case 0x2: //digitalWrite
 						mp01.writeDigital(argv[2], argv[3]);
-					break;
+                        break;
 					case 0x3:	//anlogRead
 						Firmata.write(START_SYSEX);
 						Firmata.write(STRING_DATA);
@@ -822,20 +823,20 @@ void sysexCallback(byte command, byte argc, byte *argv)
 						Firmata.write(argv[2]);
 						Firmata.write(argv[0]);
 						Firmata.write(END_SYSEX);
-					break;
+                        break;
 					case 0x4: //anlogWrite(PWM)
 						mp01.writeAnalog(argv[2], argv[3]);
-					break;
-					case 0x5:	//ultrasonic
-						Firmata.write(START_SYSEX);
-						Firmata.write(STRING_DATA);
-						Serial.println(mp01.measureUltrasonic(MP_CM));
-						Firmata.write(argv[1]);
-						Firmata.write(argv[0]);
-						Firmata.write(END_SYSEX);
-					break;
+                        break;
+                    case 0x5: //ultrasonic
+                        Firmata.write(START_SYSEX);
+                        Firmata.write(STRING_DATA);
+                        Serial.println(mp01.measureUltrasonic(MP_CM, MP_TIMEOUT));
+                        Firmata.write(argv[1]);
+                        Firmata.write(argv[0]);
+                        Firmata.write(END_SYSEX);
+                        break;
 					default:
-					break;
+                        break;
 				}
 			}
 			else {}
@@ -843,10 +844,23 @@ void sysexCallback(byte command, byte argc, byte *argv)
 
 		case _BRICKBOARD_BT01_:
 			if (argv[0] != 0xFF) {
-
+        // nothing!
 			}
 			else {}
 		break;
+
+    case _BRICKBOARD_US01_:
+      if (argv[0] != 0xFF) {
+        BrickBoard_US01  us01(argv[0], MODE0);
+        Firmata.write(START_SYSEX);
+        Firmata.write(STRING_DATA);
+        Serial.println(us01.measureUltrasonic(MP_CM, MP_TIMEOUT));
+        Firmata.write(0x0);
+        Firmata.write(argv[0]);
+        Firmata.write(END_SYSEX);
+      }
+      else {}
+    break;
 	}
 }
 

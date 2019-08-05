@@ -24,6 +24,7 @@ BrickBoard_MP01::BrickBoard_MP01(uint8_t portName): BrickBoard_Ports(portName, M
 BrickBoard_MP01::BrickBoard_MP01(uint8_t portName, uint8_t cppMode): BrickBoard_Ports(portName, cppMode)
 {   /* Nothing */   }
 
+
 /* Utrasonic I/F */
 double BrickBoard_MP01::measureUltrasonic(float unitDiv)
 {
@@ -39,6 +40,20 @@ double BrickBoard_MP01::measureUltrasonic(float unitDiv)
     return (((double)(pulseIn(_pin1, HIGH)) / unitDiv) / 2.0);
 }
 
+double BrickBoard_MP01::measureUltrasonic(float unitDiv, uint32_t timeout)
+{
+    pinMode(_pin1, INPUT);    /* ECHO */
+    pinMode(_pin2, OUTPUT);   /* TRIGGER */
+
+    digitalWrite(_pin2, LOW);
+    delayMicroseconds(2);
+    digitalWrite(_pin2, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(_pin2, LOW);
+
+    return (((double)(pulseIn(_pin1, HIGH, timeout)) / unitDiv) / 2.0);
+}
+
 double BrickBoard_MP01::measureUltrasonic(float unitDiv, uint8_t measureSample, uint8_t measureDelay)
 {
   double measureSum = 0;
@@ -46,7 +61,7 @@ double BrickBoard_MP01::measureUltrasonic(float unitDiv, uint8_t measureSample, 
 
   if (measureSample < 3)
   {
-	measureSample = 3;
+    measureSample = 3;
   }
   else {}
 

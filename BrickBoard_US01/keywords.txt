@@ -1,26 +1,24 @@
 ############################################
-# Syntax Coloring Map For BrickBoard LED01
+# Syntax Coloring Map For BrickBoard US01
 ############################################
 
 ############################################
 # Class (KEYWORD1)
 ############################################
 
-BrickBoard_LED01	KEYWORD1
+BrickBoard_US01	KEYWORD1
 
 ############################################
 # Methods and Functions (KEYWORD2)
 ############################################
 
-writeBlue	KEYWORD2
-writeRed	KEYWORD2
-onBlue	KEYWORD2
-offBlue	KEYWORD2
-onRed	KEYWORD2
-offRed	KEYWORD2
-blinkBlue	KEYWORD2
-blinkRed	KEYWORD2
+measureUltrasonic	KEYWORD2
 
 ############################################
 # Constants (LITERAL1)
 ############################################
+
+MP_MM	LITERAL1
+MP_CM	LITERAL1
+MP_INCH	LITERAL1
+MP_TIMEOUT	LITERAL1

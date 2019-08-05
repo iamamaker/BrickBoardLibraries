@@ -7,6 +7,8 @@
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU License...
  *  See the GNU License for more details.
+ *
+ *  modified - added BRICKBOARD_M02, 2019
  */
 
 #include "BrickBoard.h"
@@ -54,7 +56,11 @@ BrickBoard_Ports::BrickBoard_Ports(uint8_t portName, uint8_t mode)
     }
     else if (_port == PB) {
         if (mode == MODE1) {
+#if defined (ARDUINO_BRICKBOARD_M01)
             _pin1 = PBX_S1;   _pin2 = PBX_S2;
+#elif defined (ARDUINO_BRICKBOARD_M02)
+            _pin1 = PXX_S1;   _pin2 = PXX_S2;
+#endif
         }
         else {
             _pin1 = PB_S1;    _pin2 = PB_S2;
@@ -80,6 +86,7 @@ BrickBoard_Ports::BrickBoard_Ports(uint8_t portName, uint8_t mode)
         _pin3 = PD_S3; _pin4 = PD_S4;
     }
     else if (_port == PE) {
+#if defined (ARDUINO_BRICKBOARD_M01)
         if (mode == MODE1) {
             _pin4 = NOTHING;
         }
@@ -87,10 +94,20 @@ BrickBoard_Ports::BrickBoard_Ports(uint8_t portName, uint8_t mode)
             _pin4 = PE_S4;
         }
         _pin1 = PE_S1; _pin2 = PE_S2; _pin3 = PE_S3;
+#elif defined (ARDUINO_BRICKBOARD_M02)
+        if (mode == MODE1) {
+            _pin1 = PEX_S1;   _pin2 = PEX_S2;
+        }
+        else {
+            _pin1 = PE_S1;    _pin2 = PE_S2;
+        }
+        _pin3 = PE_S3; _pin4 = PE_S4;
+#endif
     }
     else{}
 }
 
+#if 0 // not used
 bool BrickBoard_Ports::configSignal(uint8_t signalName, uint8_t pinNum)
 {
     if (_port != PE) {
@@ -109,6 +126,7 @@ bool BrickBoard_Ports::configSignal(uint8_t signalName, uint8_t pinNum)
     }
     return true;
 }
+#endif
 
 uint8_t BrickBoard_Ports::getPin(uint8_t signalName)
 {

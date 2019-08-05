@@ -3,13 +3,6 @@
 
 #include <BrickBoard.h>
 
-#if 0
-#define MT_FORWARD     0
-#define MT_REVERSE     1
-#define MT_BREAK       2
-#define MT_STOP        3
-#endif
-
 #define MT_STOP        0x0
 #define MT_FORWARD     0x1
 #define MT_REVERSE     0x2

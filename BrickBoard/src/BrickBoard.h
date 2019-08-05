@@ -13,6 +13,7 @@
 #define _BRICKBOARD_IR01_		0x06
 #define _BRICKBOARD_MP01_		0x07
 #define _BRICKBOARD_BT01_		0x08
+#define _BRICKBOARD_US01_       0x09
 
 
 /* Port Name Definition */
@@ -34,6 +35,7 @@
 #define MODE2         0x0C
 
 /* Port Signal Pin Definition */
+#if defined (ARDUINO_BRICKBOARD_M01)
 #define PA_S1       5
 #define PA_S2       7
 #define PA_S3       6
@@ -63,6 +65,37 @@
 #define PXX_S2      A5
 #define PBX_S1      3
 #define PBX_S2      2
+#elif defined (ARDUINO_BRICKBOARD_M02)
+#define PA_S1       2
+#define PA_S2       3
+#define PA_S3       A0
+#define PA_S4       4
+
+#define PB_S1       5
+#define PB_S2       6
+#define PB_S3       A1
+#define PB_S4       7
+
+#define PC_S1       9
+#define PC_S2       10
+#define PC_S3       A2
+#define PC_S4       8
+
+#define PD_S1       12
+#define PD_S2       11
+#define PD_S3       A3
+#define PD_S4       13
+
+#define PE_S1       SDA1
+#define PE_S2       SCL1
+#define PE_S3       A6
+#define PE_S4       A7
+
+#define PXX_S1      A4
+#define PXX_S2      A5
+#define PEX_S1      0
+#define PEX_S2      1
+#endif
 
 #define L           13
 
@@ -106,7 +139,9 @@ protected:
 public:
     BrickBoard_Ports();
     BrickBoard_Ports(uint8_t portName, uint8_t mode);
+#if 0 // not used
     bool configSignal(uint8_t signalName, uint8_t pinNum);
+#endif
     uint8_t getPin(uint8_t signalName);
     void writeDigital(uint8_t signalName, bool value);
     bool readDigital(uint8_t signalName);

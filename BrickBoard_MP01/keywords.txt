@@ -12,12 +12,10 @@ BrickBoard_MP01	KEYWORD1
 # Methods and Functions (KEYWORD2)
 ############################################
 
-measureUltrasonic	KEYWORD2
+
 
 ############################################
 # Constants (LITERAL1)
 ############################################
 
-MP_MM	LITERAL1
-MP_CM	LITERAL1
-MP_INCH	LITERAL1
+

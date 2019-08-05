@@ -19,7 +19,7 @@ BrickBoard_Ports	KEYWORD1
 writeDigital	KEYWORD2
 readDigital	KEYWORD2
 writeAnalog	KEYWORD2
-readAnalogo	KEYWORD2
+readAnalog	KEYWORD2
 configSignal	KEYWORD2
 getPin	KEYWORD2
 

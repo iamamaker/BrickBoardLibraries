@@ -25,9 +25,11 @@ BrickBoard_VR01::BrickBoard_VR01(uint8_t portName, uint8_t cppMode): BrickBoard_
 
 uint16_t BrickBoard_VR01::readPotentiometer()
 {
+#if defined (ARDUINO_BRICKBOARD_M01)
     if (!(_port == PB || _port == PC))
         return NA;  // not available
     else
+#endif
         return BrickBoard_Ports::readAnalog(S3);
 }
 
@@ -35,9 +37,14 @@ uint16_t BrickBoard_VR01::readPotentiometer(uint8_t avgCount)  /* avgCount : 1 ~
 {
     uint32_t sum = 0;
 
-    if (!(_port == PB || _port == PC) || avgCount == 0)
+#if defined (ARDUINO_BRICKBOARD_M01)
+    if (!(_port == PB || _port == PC))
         return NA;  // not available
     else {}
+#endif
+
+    if (avgCount < 1)
+        return NA;
 
     for (int i = 0; i < avgCount; i++)
     {

@@ -2,10 +2,7 @@
 #define __BRICKBOARD_MP01_H__
 
 #include <BrickBoard.h>
-
-#define MP_MM          2.9
-#define MP_CM          29.0
-#define MP_INCH        74.0
+#include <BrickBoard_US01.h>
 
 
 /* Class of BrickBoard MP01 */
@@ -18,6 +15,7 @@ public:
 
     /* Utrasonic I/F */
     double measureUltrasonic(float unitDiv);
+    double measureUltrasonic(float unitDiv, uint32_t timeout);
     double measureUltrasonic(float unitDiv, uint8_t measureSample, uint8_t measureDelay);
 };
 
