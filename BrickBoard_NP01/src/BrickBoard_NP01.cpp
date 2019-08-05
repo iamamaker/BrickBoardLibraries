@@ -40,17 +40,17 @@ BrickBoard_NP01::BrickBoard_NP01(uint8_t portName, uint8_t cppMode): BrickBoard_
 }
 
 
-void BrickBoard_NP01::setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b)
+void BrickBoard_NP01::setLedColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b)
 {
     Adafruit_NeoPixel::setPixelColor(n - 1, r, g, b);
 }
 
-void BrickBoard_NP01::setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b, uint8_t w)
+void BrickBoard_NP01::setLedColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b, uint8_t w)
 {
     Adafruit_NeoPixel::setPixelColor(n - 1, r, g, b, w);
 }
 
-void BrickBoard_NP01::setPixelColor(uint16_t n, uint32_t c) {
+void BrickBoard_NP01::setLedColor(uint16_t n, uint32_t c) {
     Adafruit_NeoPixel::setPixelColor(n - 1, c);
 }
 
@@ -61,6 +61,6 @@ static const uint32_t _simpleColorSpectrum[25] PROGMEM = {
     0x00FF80, 0x00FFAA, 0x00FFD5, 0x00FFFF, 0x00D5FF,
     0x00AAFF, 0x0080FF, 0x0055FF, 0x002AFF, 0X0000FF };
 
-uint32_t BrickBoard_NP01::colorSpectrum(uint8_t idx) const {
+uint32_t BrickBoard_NP01::simpleColorSpectrum(uint8_t idx) const {
     return pgm_read_dword(&_simpleColorSpectrum[idx]);
 }
