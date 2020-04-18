@@ -15,6 +15,9 @@
 #define _BRICKBOARD_BT01_		0x08
 #define _BRICKBOARD_US01_       0x09
 
+#define _BRICKBOARD_DS01_       0x0B
+#define _BRICKBOARD_TH01_       0x0C
+#define _BRICKBOARD_NP01_       0x0D
 
 /* Port Name Definition */
 #define PA          0x01

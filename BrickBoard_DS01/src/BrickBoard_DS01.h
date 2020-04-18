@@ -49,6 +49,7 @@ public:
     float getDustDensity();
     float getDustDensity(uint8_t qCnt);
     float getDustDensity(uint16_t intervalMsec, uint8_t qCnt);
+    bool isValidData();
     void setVoc(float voc);
     float getVoc();
     bool calibrationVoc();

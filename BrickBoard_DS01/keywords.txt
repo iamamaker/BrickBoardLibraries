@@ -13,6 +13,7 @@ BrickBoard_DS01	KEYWORD1
 #######################################
 
 getDustDensity	KEYWORD2
+isValidData	KEYWORD2
 setVoc	KEYWORD2
 getVoc	KEYWORD2
 calibrationVoc	KEYWORD2

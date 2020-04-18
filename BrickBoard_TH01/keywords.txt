@@ -25,5 +25,5 @@ getHumidity	KEYWORD2
 # Constants (LITERAL1)
 #######################################
 
-DHTLIB_OK	LITERAL1
-DHTLIB_SKIP_READ	LITERAL1
+TH01_OK	LITERAL1
+TH01_SKIP_READ	LITERAL1

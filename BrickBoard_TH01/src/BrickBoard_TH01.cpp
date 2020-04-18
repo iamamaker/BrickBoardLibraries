@@ -33,20 +33,20 @@ int8_t BrickBoard_TH01::nonBlockingRead(uint16_t intervalMsec)
     }
     else
     {
-        state = DHTLIB_SKIP_READ;
+        state = TH01_SKIP_READ;
     }
 
-    if (state < DHTLIB_OK)
+    if (state < TH01_OK)
     {
         digitalWrite(_pin2, HIGH);
     }
-    
+
     return state;
 }
 
 int8_t BrickBoard_TH01::read()
 {
-    return nonBlockingRead(DHTLIB_READ_INTERVAL);
+    return nonBlockingRead(TH01_READ_INTERVAL);
 }
 
 int8_t BrickBoard_TH01::read(uint16_t intervalMsec)

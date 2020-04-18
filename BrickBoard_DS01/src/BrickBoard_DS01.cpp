@@ -49,7 +49,7 @@ float BrickBoard_DS01::avgDustData(uint16_t intervalMsec, uint8_t qCnt)
         delayMicroseconds(40);
         digitalWrite(_pin1, HIGH);
 
-        _q[_i] = rawData * (5.0 / 1024.0) * 100;
+        _q[_i] = (float)rawData * (5.0 / 1024.0) * 100;
 
         if (qCnt > DS01_MAX_QCNT)
             qCnt = DS01_MAX_QCNT;
@@ -103,6 +103,11 @@ float BrickBoard_DS01::getDustDensity(uint8_t qCnt)
 float BrickBoard_DS01::getDustDensity(uint16_t intervalMsec, uint8_t qCnt)
 {
     return avgDustData(intervalMsec, qCnt);
+}
+
+bool BrickBoard_DS01::isValidData()
+{
+    return _validData;
 }
 
 void BrickBoard_DS01::setVoc(float voc)

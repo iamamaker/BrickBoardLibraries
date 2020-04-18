@@ -24,6 +24,7 @@
 #define C_INDIGO    0x4b0082
 #define C_PURPLE    0x800080
 #define C_WHITE     0xffffff
+#define C_BLACK     0x000000
 
 
 class BrickBoard_NP01: public BrickBoard_Ports, public Adafruit_NeoPixel

@@ -11,14 +11,14 @@ void loop() {
 
     int state = sensor.read();   // default interval : 2000 msec
 
-    if (state == DHTLIB_OK)
+    if (state == TH01_OK)
     {
         Serial.print(sensor.getTemperature());
         Serial.print(" [C] \t");
         Serial.print(sensor.getHumidity());
         Serial.println(" [RH]");
     }
-    else if (state < DHTLIB_OK)
+    else if (state < TH01_OK)
     {
         Serial.println("Read ERROR!!");
     }

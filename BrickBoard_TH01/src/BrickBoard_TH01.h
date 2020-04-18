@@ -21,8 +21,9 @@
  */
 #include <dht.h>
 
-#define DHTLIB_READ_INTERVAL    2000    // 2sec
-#define DHTLIB_SKIP_READ        1
+#define TH01_READ_INTERVAL  2000    // 2sec
+#define TH01_SKIP_READ      1
+#define TH01_OK             0
 
 
 class BrickBoard_TH01: public BrickBoard_Ports, public dht
